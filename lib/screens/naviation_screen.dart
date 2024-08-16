@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:itech/screens/cart_screen.dart';
 import 'package:itech/screens/favorites_screen.dart';
 import 'package:itech/screens/home_screen.dart';
+import 'package:itech/screens/manage_user_screem.dart';
 import 'package:itech/screens/profile_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
@@ -17,10 +18,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
   int pageIndex = 0;
 
   List<Widget> pages = [
-     HomeScreen(),
+    HomeScreen(),
     const CartScreen(),
     const ProfileScreen(),
     const FavoritesScreen(),
+    const ManageUser(),
   ];
   @override
   Widget build(BuildContext context) {

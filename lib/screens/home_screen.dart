@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:itech/screens/list_tagiha.dart';
+import 'package:itech/screens/manage_user_screem.dart';
+import 'package:itech/screens/pemasukan_screens.dart';
 import 'package:itech/utils/dashboard_tile.dart';
 import 'package:itech/utils/menus.dart';
 
@@ -210,37 +213,49 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       Expanded(
                         child: ListView(
-                          children: const [
+                          children: [
                             DashboardTile(
                               icon: Icons.person,
                               title: 'Manage Users',
                               subtitle: '15 users registered',
+                              onTap: () => const ManageUser(),
                             ),
                             DashboardTile(
                               icon: Icons.receipt,
                               title: 'Transaksi',
                               subtitle: 'Rp 10.000.000',
+                              onTap: () => const ListTagihan(),
                             ),
                             DashboardTile(
                               icon: Icons.list_alt,
                               title: 'List Tagihan',
                               subtitle: 'Rp 20.000.000',
+                              onTap: () => const ListTagihan(),
                             ),
                             DashboardTile(
                               icon: Icons.pending_actions,
                               title: 'Pengeluaran',
                               subtitle: 'Rp 5.000.000',
+                              onTap: () => const ListTagihan(),
                             ),
                             DashboardTile(
                               icon: Icons.incomplete_circle,
                               title: 'Pemasukan',
                               subtitle: 'Rp 15.000.000',
+                              onTap: () => const PemasukanScreen(),
                             ),
                             DashboardTile(
                               icon: Icons.inbox,
                               title: 'Invoice',
                               subtitle: '15 invoice',
-                            )
+                              onTap: () => const ListTagihan(),
+                            ),
+                            DashboardTile(
+                              icon: Icons.cases,
+                              title: 'Total Tagihan',
+                              subtitle: '15 tagihan',
+                              onTap: () => const ListTagihan(),
+                            ),
                           ],
                         ),
                       )

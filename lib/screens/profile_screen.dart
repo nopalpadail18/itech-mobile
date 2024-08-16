@@ -104,18 +104,70 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ],
                     ),
                   ),
-                  // Row(
-                  //   children: [
-                  //     Container(
-                  //       padding: const EdgeInsets.all(11.0),
-                  //       decoration: BoxDecoration(
-                  //         color: const Color.fromARGB(255, 56, 56, 157),
-                  //         borderRadius: BorderRadius.circular(16),
-                  //       ),
-                  //       width: double.infinity,
-                  //     ),
-                  //   ],
-                  // )
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(top: 20, right: 20),
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 56, 56, 157),
+                          borderRadius: BorderRadius.circular(13),
+                        ),
+                        child: const Row(
+                         
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(11.0),
+                              child: Icon(
+                                Icons.logout,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Padding(
+                              padding: EdgeInsets.only(right: 20.0),
+                              child: Text(
+                                'Log Out',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 20, right: 20),
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 56, 56, 157),
+                          borderRadius: BorderRadius.circular(13),
+                        ),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(11.0),
+                              child: Icon(
+                                Icons.delete_outline,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(right: 8.0),
+                              child: Text(
+                                'Delete Account',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               )),
         ));
