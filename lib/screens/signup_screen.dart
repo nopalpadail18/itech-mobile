@@ -1,9 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:itech/JSON/users.dart';
+import 'package:itech/SQLite/database_helper.dart';
 import 'package:itech/screens/home_screen.dart';
 import 'package:itech/screens/login_screen.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  final name = TextEditingController();
+  final email = TextEditingController();
+  final password = TextEditingController();
+  final confirmPassword = TextEditingController();
+  final db = DatabaseHelper();
+
+  signUp() async {
+    var res = await db.createUser(
+        Users(name: name.text, email: email.text, password: password.text));
+    if (res > 0) {
+      if (!mounted) return;
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +45,7 @@ class SignupScreen extends StatelessWidget {
               width: 100,
             ),
             TextFormField(
+              controller: name,
               decoration: const InputDecoration(
                 labelText: 'Enter Name',
                 prefixIcon: Icon(Icons.person),
@@ -28,6 +54,7 @@ class SignupScreen extends StatelessWidget {
             ),
             const SizedBox(height: 15),
             TextFormField(
+              controller: email,
               decoration: const InputDecoration(
                 labelText: 'Enter Email',
                 prefixIcon: Icon(Icons.email),
@@ -36,14 +63,7 @@ class SignupScreen extends StatelessWidget {
             ),
             const SizedBox(height: 15),
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Enter Number',
-                prefixIcon: Icon(Icons.numbers),
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 15),
-            TextFormField(
+              controller: password,
               obscureText: true,
               decoration: const InputDecoration(
                 labelText: 'Enter Password',
@@ -54,9 +74,10 @@ class SignupScreen extends StatelessWidget {
             ),
             const SizedBox(height: 15),
             TextFormField(
+              controller: confirmPassword,
               obscureText: true,
               decoration: const InputDecoration(
-                labelText: 'Enter Confirm Password',
+                labelText: 'Confirm Password',
                 prefixIcon: Icon(Icons.lock),
                 suffixIcon: Icon(Icons.remove_red_eye),
                 border: OutlineInputBorder(),
@@ -65,22 +86,19 @@ class SignupScreen extends StatelessWidget {
             const SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>  HomeScreen()));
+               signUp();
               },
-              child: const Text("Create Account",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18)),
               style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(55),
                   backgroundColor: const Color(0xFF4f4fda),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   )),
+              child: const Text("Create Account",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18)),
             ),
             const SizedBox(height: 10),
             Row(
@@ -103,6 +121,5 @@ class SignupScreen extends StatelessWidget {
         ),
       ))),
     );
-    ;
   }
 }
