@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:itech/JSON/users.dart';
-import 'package:itech/SQLite/database_helper.dart';
-import 'package:itech/screens/home_screen.dart';
 import 'package:itech/screens/login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -16,19 +13,6 @@ class _SignupScreenState extends State<SignupScreen> {
   final email = TextEditingController();
   final password = TextEditingController();
   final confirmPassword = TextEditingController();
-  final db = DatabaseHelper();
-
-  signUp() async {
-    var res = await db.createUser(
-        Users(name: name.text, email: email.text, password: password.text));
-    if (res > 0) {
-      if (!mounted) return;
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const LoginScreen()),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +70,10 @@ class _SignupScreenState extends State<SignupScreen> {
             const SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {
-               signUp();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()));
               },
               style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(55),

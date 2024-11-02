@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:itech/screens/home_screen.dart';
 import 'package:itech/screens/naviation_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -12,7 +11,7 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageDecoration = const PageDecoration(
+    const pageDecoration = PageDecoration(
       titleTextStyle: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.w700,
@@ -59,11 +58,13 @@ class OnboardingScreen extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const NavigationScreen()));
               },
-              child: const Text("Get Started",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18)),
+              child: const Text(
+                "Get Started",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
+              ),
               style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(55),
                   backgroundColor: const Color(0xFF4f4fda),

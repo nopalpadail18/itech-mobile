@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:itech/screens/home_screen.dart';
 import 'package:itech/screens/naviation_screen.dart';
 import 'package:itech/utils/transaksi_tile.dart';
 
@@ -145,12 +144,12 @@ class _CartScreenState extends State<CartScreen> {
             ),
             const SizedBox(height: 15),
             Expanded(
-                child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(25),
-                topRight: Radius.circular(25),
-              ),
-              child: Container(
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(25),
+                  topRight: Radius.circular(25),
+                ),
+                child: Container(
                   width: MediaQuery.of(context).size.width * 100 / 100,
                   padding: const EdgeInsets.all(25),
                   color: Colors.grey[100],
@@ -179,62 +178,65 @@ class _CartScreenState extends State<CartScreen> {
                         // list bulan transaksi
 
                         Expanded(
-                            child: ListView(
-                          children: const [
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'Januari',
-                            ),
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'Februari',
-                            ),
-                            TransaksiTile(
-                              title: 'Maret',
-                              icon: Icons.calendar_month,
-                            ),
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'April',
-                            ),
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'Mei',
-                            ),
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'Juni',
-                            ),
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'Juli',
-                            ),
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'Agustus',
-                            ),
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'September',
-                            ),
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'Oktober',
-                            ),
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'November',
-                            ),
-                            TransaksiTile(
-                              icon: Icons.calendar_month,
-                              title: 'Desember',
-                            ),
-                          ],
-                        ))
+                          child: ListView(
+                            children: const [
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'Januari',
+                              ),
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'Februari',
+                              ),
+                              TransaksiTile(
+                                title: 'Maret',
+                                icon: Icons.calendar_month,
+                              ),
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'April',
+                              ),
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'Mei',
+                              ),
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'Juni',
+                              ),
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'Juli',
+                              ),
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'Agustus',
+                              ),
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'September',
+                              ),
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'Oktober',
+                              ),
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'November',
+                              ),
+                              TransaksiTile(
+                                icon: Icons.calendar_month,
+                                title: 'Desember',
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ),
-                  )),
-            ))
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

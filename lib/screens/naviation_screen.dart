@@ -18,10 +18,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
   int pageIndex = 0;
 
   List<Widget> pages = [
-    HomeScreen(),
+    const HomeScreen(),
     const CartScreen(),
     const ProfileScreen(),
-    const FavoritesScreen(),
+    const InvoiceScreen(),
     const ManageUser(),
   ];
   @override
@@ -34,7 +34,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         floatingActionButton: SafeArea(
           child: FloatingActionButton(
             onPressed: () {},
-            child: const Icon(
+            child:  const Icon(
               Icons.qr_code,
               size: 30,
               color: Colors.white,
